@@ -1,0 +1,46 @@
+livox:
+  front:
+    node_name: mid360_front_driver
+    user_config_path: /home/wele/ros_ws/src/Sentry-Nav/sentry_nav_bringup/config/mid_front_params.json
+    xfer_format: 0
+    multi_topic: 0
+    data_src: 0
+    publish_freq: 10.0
+    output_type: 0
+    frame_id: mid360_front_frame
+    remappings:
+      /livox/lidar: /mid360_front/lidar
+      /livox/imu: /mid360_front/imu
+  back:
+    node_name: mid360_back_driver
+    user_config_path: /home/wele/ros_ws/src/Sentry-Nav/sentry_nav_bringup/config/mid_back_params.json
+    xfer_format: 0
+    multi_topic: 0
+    data_src: 0
+    publish_freq: 10.0
+    output_type: 0
+    frame_id: mid360_back_frame
+    remappings:
+      /livox/lidar: /mid360_back/lidar
+      /livox/imu: /mid360_back/imu
+
+slam:
+  package: slam_bringup
+  mapping_launch: slam_mapping.py
+  mapping_params_file: package://slam_bringup/config/slam_mapping.yaml
+  relocalization_launch: slam_relocalization.py
+  relocalization_params_file: package://slam_bringup/config/slam_relocalization.yaml
+
+navigation:
+  package: sentry_nav_bringup
+  launch_file: mid_only_bringup.launch.py
+  use_sim_time: false
+  map_params_file: package://sentry_nav_bringup/config/savedmap_params.yaml
+  params_file: package://sentry_nav_bringup/config/nav2_params.yaml
+
+behavior_tree:
+  package: cod_behavior
+  executable: tree_1
+  node_name: tree_1
+  params_file: package://cod_behavior/launch/cod_pose.yaml
+  cod_bt_path: package://cod_behavior/cod_bt/basic_tree.xml
