@@ -75,9 +75,7 @@ def _launch_setup(context):
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(navigation_launch),
             launch_arguments={
-                'use_sim_time': str(
-                    navigation_config.get('use_sim_time', False)
-                ).lower(),
+                'use_sim_time': 'false',
                 'map_params_file': _resolve_path(
                     navigation_config['map_params_file']
                 ),
