@@ -23,13 +23,24 @@ livox:
     remappings:
       /livox/lidar: /mid360_back/lidar
       /livox/imu: /mid360_back/imu
+  dual:
+    node_name: mid360_dual_driver
+    user_config_path: /home/wele/ros_ws/src/Sentry-Nav/sentry_nav_bringup/config/mid_mix_params.json
+    xfer_format: 0
+    multi_topic: 1
+    data_src: 0
+    publish_freq: 10.0
+    output_type: 0
+    frame_id: livox_frame
 
 slam:
   package: slam_bringup
   mapping_launch: slam_mapping.py
   mapping_params_file: package://slam_bringup/config/slam_mapping.yaml
   relocalization_launch: slam_relocalization.py
-  relocalization_params_file: package://slam_bringup/config/slam_relocalization.yaml
+  relocalization_params_files:
+    red: package://slam_bringup/config/slam_relocalization_red.yaml
+    blue: package://slam_bringup/config/slam_relocalization_blue.yaml
 
 navigation:
   package: sentry_nav_bringup
@@ -41,6 +52,8 @@ navigation:
 behavior_tree:
   package: cod_behavior
   executable: tree_1
-  node_name: tree_1
-  params_file: package://cod_behavior/launch/cod_pose.yaml
+  node_name: cod_behavior
+  params_files:
+    red: package://cod_behavior/launch/cod_pose_red.yaml
+    blue: package://cod_behavior/launch/cod_pose_blue.yaml
   cod_bt_path: package://cod_behavior/cod_bt/basic_tree.xml
