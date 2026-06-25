@@ -56,7 +56,13 @@ def _launch_setup(context):
                     )
                 },
             ],
-        )
+        ),
+        Node(
+            package='cod_behavior',
+            executable='log_recorder',
+            name='log_recorder',
+            output='screen',
+        ),
     ]
 
 

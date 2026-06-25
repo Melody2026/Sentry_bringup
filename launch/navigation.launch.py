@@ -11,6 +11,8 @@ from launch.actions import OpaqueFunction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 
+from launch_ros.actions import Node
+
 import yaml
 
 
@@ -73,6 +75,14 @@ def _launch_setup(context):
                     navigation_config['params_file']
                 ),
             }.items(),
+        )
+    )
+    actions.append(
+        Node(
+            package='cod_behavior',
+            executable='log_recorder',
+            name='log_recorder',
+            output='screen',
         )
     )
 
