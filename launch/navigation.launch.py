@@ -77,10 +77,10 @@ def _launch_setup(context):
             launch_arguments={
                 'use_sim_time': 'false',
                 'map_params_file': _resolve_path(
-                    navigation_config['map_params_file']
+                    navigation_config['map_params_files'][color]
                 ),
                 'params_file': _resolve_path(
-                    navigation_config['params_file']
+                    navigation_config['params_files'][color]
                 ),
             }.items(),
         )
