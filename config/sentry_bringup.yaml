@@ -1,28 +1,4 @@
 livox:
-  front:
-    node_name: mid360_front_driver
-    user_config_path: /home/wele/ros_ws/src/Sentry-Nav/sentry_nav_bringup/config/mid_front_params.json
-    xfer_format: 0
-    multi_topic: 0
-    data_src: 0
-    publish_freq: 10.0
-    output_type: 0
-    frame_id: mid360_front_frame
-    remappings:
-      /livox/lidar: /mid360_front/lidar
-      /livox/imu: /mid360_front/imu
-  back:
-    node_name: mid360_back_driver
-    user_config_path: /home/wele/ros_ws/src/Sentry-Nav/sentry_nav_bringup/config/mid_back_params.json
-    xfer_format: 0
-    multi_topic: 0
-    data_src: 0
-    publish_freq: 10.0
-    output_type: 0
-    frame_id: mid360_back_frame
-    remappings:
-      /livox/lidar: /mid360_back/lidar
-      /livox/imu: /mid360_back/imu
   dual:
     node_name: mid360_dual_driver
     user_config_path: /home/wele/ros_ws/src/Sentry-Nav/sentry_nav_bringup/config/mid_mix_params.json
@@ -56,4 +32,4 @@ behavior_tree:
   params_files:
     red: package://cod_behavior/launch/cod_pose_red.yaml
     blue: package://cod_behavior/launch/cod_pose_blue.yaml
-  cod_bt_path: package://cod_behavior/cod_bt/basic_tree.xml
+  cod_bt_path: package://cod_behavior/cod_bt/nav_tree.xml
