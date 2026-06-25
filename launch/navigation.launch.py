@@ -80,7 +80,7 @@ def _launch_setup(context):
                     navigation_config['map_params_files'][color]
                 ),
                 'params_file': _resolve_path(
-                    navigation_config['params_files'][color]
+                    navigation_config['params_file']
                 ),
             }.items(),
         )

@@ -25,9 +25,7 @@ navigation:
   map_params_files:
     red: package://sentry_nav_bringup/config/savedmap_params.yaml
     blue: package://sentry_nav_bringup/config/savedmap_params.yaml
-  params_files:
-    red: package://sentry_nav_bringup/config/nav2_params.yaml
-    blue: package://sentry_nav_bringup/config/nav2_params.yaml
+  params_file: package://sentry_nav_bringup/config/nav2_params.yaml
 
 behavior_tree:
   package: cod_behavior
