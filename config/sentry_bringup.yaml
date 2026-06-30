@@ -5,7 +5,7 @@ livox:
     xfer_format: 0
     multi_topic: 1
     data_src: 0
-    publish_freq: 10.0
+    publish_freq: 50.0
     output_type: 0
     frame_id: livox_frame
 
@@ -22,7 +22,7 @@ navigation:
   package: sentry_nav_bringup
   launch_file: mid_only_bringup.launch.py
   use_sim_time: false
-  map_params_files:
+  map_params_file:
     red: package://sentry_nav_bringup/config/savedmap_params_red.yaml
     blue: package://sentry_nav_bringup/config/savedmap_params_blue.yaml
   params_file: package://sentry_nav_bringup/config/nav2_params.yaml
